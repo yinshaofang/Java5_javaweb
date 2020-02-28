@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <script>
+       var a=100;//全局变量
+       function m() {
+           console.log("a="+a);//undefined
+           var a=1;//var a变量的生命周期可以提前，但变量的初始化未被提前
+           console.log("a="+a);//1
+       }
+       //等价于
+       function m1() {
+           var a;
+           console.log("a="+a);//undefined
+           var a=1;//var a变量的生命周期可以提前，但变量的初始化未被提前
+           console.log("a="+a);//1
+       }
+       //调用
+       m();
+
+
+       //var b;
+       function m2() {
+           //console.log("b="+b);//undefined
+           b=888;//全局变量  给window对象添加一个成员变量
+           console.log("b="+b);//888
+           console.log(window.b);//888  window对象调用成员变量
+           console.log(this.b); //888 等价this指的window对象
+       }
+      window.m2();
+
+
+
+
+
+
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //把string转化为number类型
+         var num =parseInt("123px");
+         num =parseInt("q123a");//NaN（不是一个数字）
+         num=parseFloat("1.23qqq");//1.23
+         console.log("num="+num+",类型为："+typeof num);
+
+        //把number转换为字符串string
+         num=100;
+        var s=num+"";//方法一
+        s=num.toString();//方法二
+        console.log("s="+s+",类型为："+typeof s);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
