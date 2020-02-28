@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*五种数据类型  1、number   2、string  3、boolean  4、null  5、undefined
+        *
+        *
+        * */
+        var a =100.01;
+        document.write("a="+a+",类型："+typeof(a)+"<br/>");
+        var str='s';
+         str="1212";
+         str=10;
+         str+="10";//str =10+"10"; 字符串拼接
+        document.write("str="+str+",类型："+typeof str+"<br/>");
+        document.write("str的长度"+str.length+","+str.charAt(0)+",截取新的字符串："+str.substring(2,3)+"<br/>");
+        var b=true;
+        document.write("b="+b+",类型："+typeof b+"<br/>")
+        b=1; //true
+        b=0; //false
+
+        b=null; //object对象
+        document.write("b="+b+",类型："+typeof b+"<br/>")
+        var b1;//undefined
+
+        document.write("b1="+b1+",类型："+typeof b1+"<br/>")
+
+
+        //类型转换时 m=NaN  not a number
+        var m =parseInt("q123");
+        document.write("m="+m+",类型："+typeof m+"<br/>")
+
+        //在条件判断中，所有非零的数据都是为true,0,NaN,undefined为false
+        if(m){
+            alert("执行true");
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
