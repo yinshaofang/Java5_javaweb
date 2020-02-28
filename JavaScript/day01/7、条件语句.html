@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1、js是弱类型，if条件判断 string boolean null undefined number
+        var b=false;
+        if(b){
+            //非0、字符串（空字符串外） true
+           //alert("true");
+        }else{
+            //0 "" null undefined NaN false
+            //alert("false");
+        }
+
+        //2、分支语句
+        var i=20;
+        switch(false){
+            case i<20:
+                document.write("小于20"+"<br>");
+                break;
+            case i+5>20:
+                document.write("abcc");
+                break;
+        }
+
+        //3、for循环
+        for(var i=0;i<10;i++){
+            console.log("i="+i);
+        }
+        //4、dowhile
+        var n=0;
+        do{
+           console.log("n="+n);
+            n++;
+        }while (n<5);
+
+
+        var arr=[1,3,2,5,6];
+        for(var i =0;i<arr.length;i++){
+            document.write(arr[i]+","+"<br>");
+        }
+        document.write("<hr>");
+        //5、for-in用法  遍历数组
+        for(var i in arr){
+            document.write("下标："+i+"-->"+"值为："+arr[i]+"<br>");
+        }
+        document.write("<hr>");
+        //遍历对象
+        // 函数名（形参1，形参2）
+        function Stu(name,age) {
+             this.name=name;
+             this.age=age;
+        }
+         //创建对象
+        var stu =new Stu("张三",23);
+        //遍历对象的属性
+        for(var i in stu){
+            document.write(i+"--->"+stu[i]+"<br>");
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

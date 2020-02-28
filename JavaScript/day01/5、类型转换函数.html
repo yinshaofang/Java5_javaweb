@@ -16,7 +16,11 @@
         s=num.toString();//方法二
         console.log("s="+s+",类型为："+typeof s);
 
-
+        //isNaN() 来判断c是一个数字返回false 如果不是一个数字返回true
+         var c=parseInt("q20px");//NaN
+        if(isNaN(c)){
+            alert("true");
+        }
 
     </script>
 </head>
