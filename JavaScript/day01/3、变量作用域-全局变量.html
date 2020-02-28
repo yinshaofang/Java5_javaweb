@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //全局变量
+        var a =100;
+        //声明方法
+        // function 方法名（参数1，参数2，...）{ }
+        function m() {
+          // 等价于 var a;
+            a=200;
+           console.log("a="+a);
+
+           console.log("a="+a);
+           //注意：程序在执行前会先遍历该方法的变量声明代码，把其a生命周期提升到方法的开头
+           var a;
+        }
+        //调用方法
+        m();
+        alert(a);//100
+    </script>
+</head>
+<body>
+
+</body>
+</html>
