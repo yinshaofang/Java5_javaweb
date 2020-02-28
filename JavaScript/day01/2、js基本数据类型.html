@@ -32,9 +32,9 @@
 
         //类型转换时 m=NaN  not a number
         var m =parseInt("q123");
-        document.write("m="+m+",类型："+typeof m+"<br/>")
-
-        //在条件判断中，所有非零的数据都是为true,0,NaN,undefined为false
+        document.write("m="+m+",类型："+typeof m+"<br/>");
+        //m="123";
+        //在条件判断中，字符串、所有非零的数据都是为true,  0,NaN,undefined为false
         if(m){
             alert("执行true");
         }
