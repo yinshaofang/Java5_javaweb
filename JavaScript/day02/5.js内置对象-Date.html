@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function m() {
+            var date =new Date();
+             date=new Date(2020,03,02,12,13,01);
+            console.log(date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日");
+            console.log(date.getDay());
+            console.log(date.getHours());
+            console.log(date.getMinutes());
+            console.log(date.getSeconds());
+
+            //日期转字符串
+            console.log(date.toLocaleDateString());//日期
+            console.log(date.toLocaleString());//日期时间
+            console.log(date.toLocaleTimeString());//时间
+        }
+
+        function m1() {
+            //字符串转为日期
+            var s="2019/01/01 13:12:11";
+            var date=Date.parse(s);//毫秒，把字符串解析成日期
+            console.log(date);
+            //方法一
+            var d=new Date(date);
+            console.log(d);//Tue Jan 01 2019 13:12:11 GMT+0800 (中国标准时间)
+            //方法二：
+            var d2 =new Date();
+            console.log(d2.setTime(date));//1546319531000
+            console.log(d2.getTime());
+        }
+        m1();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
