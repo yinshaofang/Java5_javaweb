@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1、有参的函数 方法  类 对象
+        function Person(name,age) {
+            //属性
+            this.name=name;
+            this.age=age;
+            //方法
+            this.say=function () {
+                console.log("姓名:"+this.name+",年龄："+this.age);
+            };
+        }
+        //定义方法
+        function f1() {
+            //创建对象
+            var p=new Person("蒋彪",22);
+            console.log(p);
+            console.log(p.name,p.age);
+            console.log(p["name"]);
+            //访问方法
+            p.say();
+        }
+        f1();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

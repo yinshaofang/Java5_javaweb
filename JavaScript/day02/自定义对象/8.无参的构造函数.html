@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //2、无参的构造函数
+        function Person() {
+        }
+
+        function f1() {
+            //创建对象
+            var p=new Person();
+            p.name="张三";
+            p.sex="男";
+            p.say=function () {
+                console.log(this.name+",性别:"+this.sex);
+            }
+            p.say();//调用
+        }
+       f1();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
