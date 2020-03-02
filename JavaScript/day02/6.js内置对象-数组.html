@@ -4,13 +4,65 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-      //指定长度
-        var arr=new Array(4);
-        arr =new Array();
+        function f() {
+            //指定长度
+            var arr=new Array(4);
+            arr =new Array();
 
-      //数组指定内容
-        arr=new Array(10,"sss",true);//动态初始化
-        arr=[1,"zhangs",false];//不用new,静态初始化
+            //数组指定内容
+            arr=new Array(10,"sss",true);//动态初始化
+            arr=[1,"zhangs",false];//不用new,静态初始化
+
+            //操作
+            //添加
+            arr[arr.length]=2;
+            arr.push(2000);
+            //取出
+            arr.pop();//尾部取出
+
+            //把数组转换为字符串 join
+            var str =arr.join("、");
+            //把字符串转换为数组 split
+            var array=str.split("、");
+            //倒置
+           // console.log(array.reverse());
+            var arr1=[1,'狗'];
+            var arr2=arr1.concat(array);//拼接 返回一个新的数组
+            //截取数组 slice
+            var arr3=arr2.slice(0,3);//[0,3)
+             console.log(arr3);
+            //遍历数组
+            for(var i in array){
+                //console.log("i="+i+",元素："+arr[i]);
+            }
+            for(var i=0;i<arr2.length;i++){
+                console.log("i="+i+",元素："+arr2[i]);
+            }
+        }
+
+
+        //数值  a-b>0 升序   b-a>0降序
+        function mysort(a,b) {
+            return b-a;
+        }
+         //字符串长度排序
+        function mysort1(a,b) {
+            return b.length -a.length;
+        }
+
+        function f1() {
+            //排序
+            var arr4=[12,22,55,33,1111];
+            arr4.sort(mysort);//升序排序，按照字符串形式
+
+            arr4=['dddd','aaa','bbewss'];
+            arr4.sort(mysort1);
+            console.log(arr4);
+        }
+
+
+       f1();
+
 
     </script>
 
