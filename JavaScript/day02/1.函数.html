@@ -6,13 +6,35 @@
     <script>
         //函数/方法:  function 方法名(参数1，参数2){return }
       function m(a,b,c) {
-          console.log("a="+a+",b="+b+",c="+c);
-          console.log(arguments.length);//arguments是数组，指用来保存传入的实参值  length数组长度
+          //console.log("a="+a+",b="+b+",c="+c);
+          //console.log(arguments.length);//arguments是数组，指用来保存传入的实参值  length数组长度
           //循环遍历
           for(var i=0;i<arguments.length;i++){
-              console.log(arguments[i]);
+             // console.log(arguments[i]);
           }
       }
+
+      //减法运算   方法一
+      function m1(a,b) {
+          return a-b;
+      }
+      var r= m1(3,2);
+      console.log(r);
+
+      //方法二
+        function m2(a,b) {
+            if(isNaN(a)){//不是一个数字true    是一个数字false
+                a=0;
+            }
+            if(!b){
+                b=0;
+            }
+            return a+b;
+        }
+       console.log(m2("1q",5));
+
+    //作业：做一个加减乘除计算器
+
     </script>
 </head>
 <body>

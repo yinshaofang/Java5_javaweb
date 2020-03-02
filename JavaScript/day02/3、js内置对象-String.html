@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var str='hello,javascript';
+         var str1=new String("jsdddds");//String对象
+        document.write(str.charAt(1)+"<br>");//2
+        document.write(str1.lastIndexOf('s')+"<br>");//方法返回指定文本在字符串中最后一次出现的索引
+        document.write(str.fontcolor("red")+"<br>");//加色
+        var array=str.split(',');
+        for(var i=0;i<array.length;i++){
+            document.write("下标："+i+"--》"+array[i]+"<br>");
+        }
+        document.write(str1.substr(0,1)+"<br>");//[0,1)
+        document.write(str1.substr(1)+"<br>");//[1)
+        document.write(str1.toUpperCase()+"<br>");// 大写
+
+        //String对象
+        var s1=new String("javascript");//地址编号
+        var s2=new String("javascript");//地址编号
+
+        document.write("s1=s2?"+(s1===s2));// false 比的地址编号
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

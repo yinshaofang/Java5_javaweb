@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function m1() {
+            alert("m1方法调用了吗？");
+            return 1;
+        }
+
+        function m2() {
+            var a=m1;//调用方法：m1()，如果不加括号，表示只传方法名
+
+            //等价于方法内部声明一个匿名方法（建议）
+            a=function () {
+                alert("m2匿名方法被调用");
+                return 1;
+            }
+            a();//调用匿名方法
+
+        }
+        //调用m2方法
+       m2();
+
+    </script>
+</head>
+<body>
+</body>
+</html>
