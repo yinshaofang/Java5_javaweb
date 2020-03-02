@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //函数/方法:  function 方法名(参数1，参数2){return }
+      function m(a,b,c) {
+          console.log("a="+a+",b="+b+",c="+c);
+          console.log(arguments.length);//arguments是数组，指用来保存传入的实参值  length数组长度
+          //循环遍历
+          for(var i=0;i<arguments.length;i++){
+              console.log(arguments[i]);
+          }
+      }
+    </script>
+</head>
+<body>
+   <input type="button" value="测试方法" onclick="m(1,2,4,5)">
+</body>
+</html>
