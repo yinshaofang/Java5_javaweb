@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function m1() {
+            alert("页面加载以后执行！");
+           // open("2.html","","width=200px,height=100px");
+        }
+        function m2() {
+            open("2.html","","width=200px,height=400px");
+        } 
+       function m3() {
+          var wd=open("2.html","","width=200px,height=400px,left=100px,top=300px");
+          //定时器：规定4s会关闭窗口
+          setTimeout(function () {
+              wd.close();//4s后关闭
+          },4000);
+       }
+
+    </script>
+</head>
+<body onload="m1();" onunload="m2();">
+
+ <a href="javascript:;" onclick="m3();">打开新窗口</a>
+ <input type="text">
+</body>
+</html>

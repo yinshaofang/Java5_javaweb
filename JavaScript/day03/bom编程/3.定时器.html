@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 40px;
+            height:40px;
+            background-color: blueviolet;
+            border-radius: 50%;
+            position: relative;
+            left:0;
+            top:0;
+            color: white;
+            font-size: 10px;
+            line-height: 40px;
+        }
+    </style>
+    <script>
+        //移动方法
+        function mymove() {
+             var obj=document.getElementById("d");
+             var x=Math.floor(Math.random()*100);
+             var y=Math.floor(Math.random()*100);
+             obj.style.left=x+"px";
+             obj.style.top=y+"px";
+        }
+        var task;
+        function f1() {
+            clearTimeout(task);//在下一次开始取消setTimeout定时任务
+           task=setInterval(mymove,500);//每个0.5s执行一次
+            //6s后停止
+            setTimeout(function () {
+                clearInterval(task);
+            },6000);
+        }
+    </script>
+
+
+</head>
+<body>
+   <div id="d">点我呀</div>
+   <input type="button" onclick="f1();" value="开始游戏">
+</body>
+</html>
