@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+     .focus{
+         font-size: 18px;
+         font-weight: bold;
+         color: red;
+     }
+    </style>
+    <script>
+         function f(obj) {
+             //清空父节点的类名
+             obj.parentNode.className="";
+             //获取某个父节点的全部子节点
+             var arr =obj.parentNode.childNodes;
+             for(var i=0;i<arr.length;i++){
+                 arr[i].className="";//清空样式
+             }
+             //获取className属性操作类样式
+             obj.className="focus";
+         }
+    </script>
+</head>
+<body>
+   <ul id="u">
+       <li>节点1</li>
+       <li>节点2</li>
+       <!--注释-->
+       <li id="i3">节点3</li>
+       <li>节点4</li>
+       <li>节点5</li>
+   </ul>
+   <input type="button" onclick="f(obj.parentNode.firstChild.nextSibling);" value="头节点">
+   <!--空格就是一个节点-->
+   <input type="button" onclick="f(obj.previousSibling.previousSibling.previousSibling.previousSibling);" value="上一个节点">
+   <input type="button" onclick="f(obj);" value="当前节点">
+   <input type="button" onclick="f(obj.parentNode);" value="父节点">
+   <input type="button" onclick="f(obj.nextSibling.nextSibling);" value="下一个节点">
+   <input type="button" onclick="f(obj.parentNode.lastChild.previousSibling);" value="最后节点">
+   <script>
+       var obj=document.getElementById("i3");
+       //console.log(obj);
+   </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function f() {
+            var obj=document.createElement("div");//创建一个div节点
+            var text=document.createTextNode("我是新增的节点内容");
+            obj.appendChild(text);
+
+            var body=document.getElementById("b");
+           // body.appendChild(obj);//增加
+            var a=document.getElementById("a1");
+//            body.insertBefore(obj,a);//a标签前插入一个div标签
+//            body.replaceChild(obj,a)//替换
+            //body.removeChild(a);//删除
+            //a.remove();//删除 IE可能不兼容
+
+           //innerHTML和innerText区别 innerHTML：包含文本和标签    innerText：指包含文本
+            console.log(body.innerHTML+"------"+body.innerText);
+            //****在页面上增加一个标签，等价于增加节点的方法，推荐使用****
+            body.innerHTML=body.innerHTML+"<div>Hello,JS!</div>"+"<br>";
+
+            //innerText不认识div标签
+            body.innerText =body.innerText+"<div>Hello</div>";
+
+            //如果某个标签获取内容，二者没有区别
+            console.log(a.innerHTML+"----------"+a.innerText);//测试
+
+        }
+
+    </script>
+</head>
+<body id="b">
+   <a href="javascript:;" id="a1" onclick="f()">测试</a>
+   <!--<div>我是新增的节点内容</div>-->
+</body>
+</html>
