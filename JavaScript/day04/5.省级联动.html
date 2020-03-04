@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var data={//JSON对象
+            "请选择":["请选择"],
+            "江苏":["南京","苏州","常州","无锡"],
+            "山东":["济南","烟台","青岛"],
+            "安徽":["合肥","芜湖"]
+        };
+        //onload在页面加载以后执行
+        onload=function () {
+            //初始化省
+            for(var i in data){// i= key
+                loadValue("pro",i);
+            }
+        }
+           //公有方法
+          function loadValue(id,value) {
+              var obj=document.getElementById(id);
+              var o =new Option(value);
+              obj.options[obj.length]=o;//添加
+          }
+          function changeCity() {
+              //pro.value指的是data中的省
+              var arr=data[pro.value];//获取城市数组
+              city.length=0;
+              for(var i in arr){
+                  loadValue("city",arr[i]);//i下标
+              }
+          }
+
+
+    </script>
+</head>
+<body>
+   <form>
+       <label>住址:</label>
+       <select id="pro" onchange="changeCity();"></select>省
+       <select id="city">
+           <option>请选择</option>
+       </select>市
+   </form>
+</body>
+</html>

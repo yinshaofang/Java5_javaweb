@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select{
+            width: 200px;
+            font-weight: bold;
+            font-size: 25px;
+            color: red;
+        }
+        a{
+            display: inline-block;
+            text-decoration: none;
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+        a:hover{
+            background-color: #fff;
+            color: red;
+            border: 1px solid red;
+
+        }
+    </style>
+
+    <script>
+        function sel() {
+            var index =s1.selectedIndex;//获取所有的选项下标
+            var o=s1.options[index];//对象
+            console.log(typeof o);
+            console.log("你选择是：value值:"+o.value+",内容:"+o.text+",下标："+index);
+        }
+        function add() {
+            //方法1:添加节点
+            var o =document.createElement("option");
+            o.value="4";
+            o.innerHTML="pear";
+            //s1.appendChild(o);//添加选项
+
+            //方法2:innerHTML插入 推荐
+           // s1.innerHTML=s1.innerHTML+"<option value=\"4\">pear</option>";
+
+            //方法3:对象
+            var o =new Option('pear',4);
+            s1.options[s1.length]=o;//数组追加
+        }
+         function del() {
+             var index =prompt("请输入你要删除的下标:");
+             //删除一个
+            // s1.options[index]=null;
+             //删除全部
+             s1.length=0;
+         }
+    </script>
+
+
+</head>
+<body>
+    <form>
+        <select id="s1" onchange="sel();">
+            <option value="1">apple</option>
+            <option value="2">banana</option>
+            <option value="3">orange</option>
+        </select><br>
+        <a href="javascript:;" onclick="add();">添加选项</a>&nbsp;&nbsp;
+        <a href="javascript:;" onclick="del();">删除选项</a>
+    </form>
+</body>
+</html>
