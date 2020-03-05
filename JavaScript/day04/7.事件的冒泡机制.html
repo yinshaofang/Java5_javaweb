@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:200px;
+            height:240px;
+            background-image: url(img/jj.jpg);
+            position: fixed;
+            left: 10px;
+            top: 400px;
+        }
+        a{
+            text-decoration: none;
+            font-size:40px;
+            color: red;
+            float:right;
+        }
+    </style>
+    <script>
+          function advertise() {
+             // location.href="2.事件.html";
+              open("2.事件.html");
+          }
+          function closeAdv(e) {
+              d.style.display="none";//隐藏
+              //取消冒泡机制
+              e.cancelBubble=true;//默认false
+          }
+    </script>
+
+</head>
+<body>
+   <!--事件冒泡机制:里面的a标签是div子标签，都有事件，一般最里的a标签的事件先发生，div中的事件再发生-->
+   <div id="d" onclick="advertise();">
+       <!--event是window对象的属性，指的全局事件本身-->
+      <a href="javascript:;" onclick="closeAdv(event);">×</a>
+   </div>
+</body>
+</html>

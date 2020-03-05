@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <script>
+        //初始化页面
+       // onload=function () {
+
+        //jquery的工厂函数 $()--》等价于dom中的onload,其执行时机为：在浏览器构建dom树之后立即执行其中代码
+         //                 -->等价 $(document).ready()
+        //$(function () {
+        $(document).ready(function () {
+            //dom对象
+            var obj =document.getElementById("d1");
+            console.log(obj.innerHTML);//输出页面
+            //jquery对象 $()等价于jQuery()
+            var jobj=$("#d1");
+            console.log(jobj.html());//jquery的html()方法等价于原生js中的属性innerHTML
+
+            //把dom对象转换为jquery对象change
+            console.log("-------dom对象转换为jquery对象----------")
+            var changeJ=$(obj);
+            //console.log(obj.html());
+            console.log("dom对象转换为jquery对象:"+changeJ.html());
+
+            console.log(changeJ.innerHTML);//undefined
+            console.log("-------jquery对象转换为dom对象--------")
+            var changeObj =$(obj)[0];//方法一
+             changeObj=$(obj).get(0);//方法二
+            console.log("jquery对象转换为dom对象："+changeObj.innerHTML);
+
+            console.log("-------jquery对象中的html属性和text属性区别:1、当获取文本时二者没有区别 2、设置二者有区别--------")
+
+             changeJ.html("<h1 style='color:red;'>fine</h1>");// html()等价于innerHTML ：标签和文本
+
+            //changeJ.text("<span style='color:red;'>fine</span>"); //text()等价于innerText:文本
+        });
+
+    </script>
+</head>
+<body>
+   <div id="d1">
+       这是我的第一个jquery文件！
+   </div>
+</body>
+</html>

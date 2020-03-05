@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            console.log("------------------id选择器-------------------------")
+           //id选择器
+            var d=$("#d1");
+            console.log("------------------标签选择器-------------------------")
+            //标签选择器
+             var arr=$("div");//jquery对象实质上是dom对象的数组
+            console.log(arr.length);
+            //遍历数组
+            for(var i=0;i<arr.length;i++){
+                //console.log(arr[i].innerHTML);//arr[0][i].innerHTML --> arr[i]转换为dom对象,调用innerHTML
+                //console.log(arr.eq(i).html())//jquery对象调用html(),加eq(i) 默认是全取
+            }
+            console.log("如果不加eq()方法，数组中默认只取第一个元素："+arr.html());//如果不加eq()方法，数组中默认只取第一个元素
+
+            console.log("------------------类选择器-------------------------")
+            arr=$(".c1");
+            for(var i=0;i<arr.length;i++){
+                //console.log(arr[i].innerHTML);//arr[0][i].innerHTML --> arr[i]转换为dom对象,调用innerHTML
+                 console.log(arr.eq(i).html())//jquery对象调用html(),加eq(i) 默认是全取
+            }
+            console.log("------------------其他选择器-------------------------")
+            arr=$("p.c1");//复合选择器 必须满足二者条件
+            arr=$("div,#d1,.c1");//并集选择器
+            console.log(arr.length);//5
+            arr=$("body div");//层次选择器
+            arr=$("*");//通用  12
+            arr=$("div:last");//结构伪类选择器
+            console.log(arr.html());// 我是div2
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="d1">我是div1</div>
+    <div id="d2">我是div2</div>
+    <span id="s1" class="c1">我是span标签1</span>
+    <span class="c1">我是span标签2</span>
+    <p class="c1">我是p标签</p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .c{
+            background-color: yellow;
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+    <script>
+           $(function () {
+              //增加样式
+              //$("div").addClass("c");
+              //$("div p").addClass("c");
+              //$("div p:first").addClass("c");//div后代p标签第一个元素
+              //$("div p:eq(2)").addClass("c");// 结构伪类选择器:div后代p标签 eq()下标 默认0
+              // $("p:even").addClass("c");//even偶数 默认下标从0开始
+               $("div p:odd").addClass("c");//奇数  默认0开始
+           })
+    </script>
+</head>
+<body>
+    <p>我是p标签</p>
+    <div>
+        <p>p1</p>
+        <p>p2</p>
+        <p>p3</p>
+    </div>
+    <a href="javascript:;" id="a1">删除样式</a>
+    <a href="javascript:;" id="a2">增加样式</a>
+</body>
+</html>
