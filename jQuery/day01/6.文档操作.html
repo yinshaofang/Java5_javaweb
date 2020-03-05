@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            //追加
+         $("#add").click(function () {
+             //方法一
+             var li=document.createElement("li");
+             var text=document.createTextNode($("#info").val());//从文本框中获取的值
+             li.appendChild(text);
+             //添加到ul
+             //u.appendChild(li);
+
+             //方法二 dom字符串拼接
+             //u.innerHTML=u.innerHTML+"<li>"+$("#info").val()+"</li>";
+
+             //方法三  jquery对象的append()
+             var s="<li>"+$("#info").val()+"</li>";
+             console.log(typeof s);//string  --js的内置对象
+             //$("#u").append($(s));//$(s)把字符串对象转换为jquery对象
+
+             //方法四  clone()
+             var copy=$("ul li:eq(0)").clone();
+             console.log(copy);//<li>apple</li>
+            //修改内容
+             copy.text($("#info").val());
+             $("#u").append(copy);
+
+         });
+        });
+    </script>
+</head>
+<body>
+   <input type="text" id="info">
+   <input type="button" id="add" value="追加信息">
+   <ul id="u">
+       <li>apple</li>
+       <li>banana</li>
+       <li>orange</li>
+   </ul>
+</body>
+</html>
