@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $("#show").click(function () {
+              //$("#username").val("蒋彪");//设置（修改）文本框的值
+               //原生js设置value值
+                username.value="汪廷进";
+                $("input[type=text]").val("段康");//属性选择器进行修改
+                console.log($("#username").val());// jquery对象的val()获取值
+                console.log(username.value);//原生js获取value值
+
+                //设置属性
+                $("#img").attr({"src":"img/jj.jpg","width":"200px","height":"250px"});
+                $("#img").attr("title","林俊杰");
+
+                //$("#box").attr("checked",true);//不建议  浏览器不兼容
+                //设置boolean类型属性 prop()
+                $("#box").prop("checked",true);//建议    if条件判断，如果括号里是0 false null "" undefined NaN 返回false
+
+                $("#o2").prop("selected",true);
+            });
+        })
+    </script>
+</head>
+<body>
+  <form>
+      <input type="button" id="show" value="显示"><br>
+      <input type="text" id="username" value="admin"><br>
+      <input type="checkbox" id="box"><br>
+      <input type="image" id="img"><br>
+      <select name="selall">
+          <option value="one" id="o1">选项1</option>
+          <option value="two" id="o2">选项2</option>
+      </select>
+  </form>
+  <div id="d"></div>
+</body>
+</html>
