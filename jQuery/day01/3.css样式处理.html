@@ -21,7 +21,22 @@
               //$("div p:eq(2)").addClass("c");// 结构伪类选择器:div后代p标签 eq()下标 默认0
               // $("p:even").addClass("c");//even偶数 默认下标从0开始
                $("div p:odd").addClass("c");//奇数  默认0开始
-           })
+
+               console.log($("div p:odd").css("font-size"));//css获取：20px
+              // console.log($("div p:odd").css("font-style","italic"));//css设置 斜体样式
+               //一次性添加多个样式   json对象格式
+                //$("div p:odd").css({"font-style":"italic","color":"orange"});
+
+               //点击事件
+               $("#a1").click(function() {
+                     $("div p:odd").removeClass("c");//删除样式
+                   //$("div p:odd").removeClass();//删除样式
+                   //$("div p:odd").css({"font-style":"","color":""});//删除 覆盖原来样式
+               });
+               $("#a2").click(function() {
+                   $("div p:odd").addClass("c");
+               });
+           });
     </script>
 </head>
 <body>

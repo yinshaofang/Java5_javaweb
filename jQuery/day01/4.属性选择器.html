@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            //属性选择器 input[属性名=属性值][属性名!=属性值]
+          var texts=$("input[type=text]");//3
+            texts=$("input[type=text][name!=username]");//1
+          console.log(texts.length);
+        });
+    </script>
+</head>
+<body>
+   <input type="text" value="admin" name="username"><br>
+   <input type="button"><br>
+   <input type="text"><br>
+   <input type="submit"><br>
+   <input type="text" name="username"><br>
+   <input type="email" name="email">
+</body>
+</html>
