@@ -28,19 +28,45 @@
              console.log(copy);//<li>apple</li>
             //修改内容
              copy.text($("#info").val());
-             $("#u").append(copy);
+             //append追加
+              $("#u").append(copy);
+             //copy.appendTo($("#u"));
 
+             //子标签与子标签之间 before()  after()在...之后
+             //$("ul li:last").before(copy);
+             //$("ul li:last").after(copy);
          });
+         //删除
+        $("#del").click(function () {
+            $("#u").remove();
+        });
+
+         //清空
+        $("#empty").click(function () {
+            $("#u").empty();
+        });
+
+        //clone(true)用法
+        $("ul li").click(function () {
+            //this指的是对象本身
+            var copy1=$(this).clone(true);// 默认是false  true表示复制的对象会带触发事件
+            $("#u").append(copy1);//追加
+        });
+
+
         });
     </script>
 </head>
 <body>
    <input type="text" id="info">
-   <input type="button" id="add" value="追加信息">
+   <input type="button" id="add" value="追加信息">&nbsp;&nbsp;
+   <input type="button" id="del" value="删除信息">&nbsp;&nbsp;
+   <input type="button" id="empty" value="清空信息">
    <ul id="u">
        <li>apple</li>
        <li>banana</li>
        <li>orange</li>
    </ul>
+
 </body>
 </html>
