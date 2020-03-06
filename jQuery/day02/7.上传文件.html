@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            //上传
+          $("#more").click(uploadFile);
+          //删除
+          $("div a").click(del);
+        });
+        //复制
+        var i=0;
+        function cloneFile() {
+            var f=$("#d").clone(true);
+            $("div:last").after(f);
+            //方法一:清除克隆的文件内容
+             //$("input:last").val("");
+
+            //方法二
+              f.attr("id","d"+i);//修改id
+              $("#d"+i+" input").val("");//#d0 input
+               i++;//累加
+        }
+        function uploadFile() {
+            var v=$("div:last input").val();//获取值
+            //判断
+            if(v==''){
+                alert("请添加文件!");
+                return;
+            }
+            //调用
+            cloneFile();
+        }
+
+        //删除
+        function del(){
+            //判断
+            //方法一 ：dom节点
+//            if(this.parentNode.id=='d'){
+//                return;
+//            }
+             //方法二:jquery方法
+              if($(this).parent().attr("id")=='d'){
+                  return;
+              }
+            //删除方法
+            $(this).parent().remove();
+        }
+
+    </script>
+</head>
+<body>
+   <input type="button" value="上传更多文件" id="more">
+   <div id="d">
+       文件:<input type="file">
+       <a href="javascript:;" name="delete">删除</a>
+   </div>
+</body>
+</html>
