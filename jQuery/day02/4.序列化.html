@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <script>
+         $(function () {
+             $("button").click(function () {
+                 //序列化
+                 //$("div").text($("input").serialize());
+                 $("div").text($("form").serialize());
+             });
+         })
+    </script>
+</head>
+<body>
+   <form action="1.练习.html">
+       <label for="uname">用户姓名:</label>
+       <input type="text" id="uname" name="name" placeholder="请输入用户名"><br>
+       <label for="pwd">用户密码:</label>
+       <input type="password" id="pwd" name="pass" placeholder="请输入用户密码"><br>
+       <label>住址:</label>
+       <select name="pro">
+           <option value="anhui">安徽</option>
+       </select>省
+       <select name="city">
+           <option value="hefei">合肥</option>
+       </select>市<br>
+       <input type="submit">
+   </form>
+   <button>序列化</button>
+   <div></div>
+</body>
+</html>
