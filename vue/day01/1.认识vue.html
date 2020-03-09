@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入vue.js-->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            //创建vue对象
+            var vm=new Vue({
+               //el属性：挂载元素(属性值一般是选择器或dom元素)
+              el:'#app',
+               //data属性,模型数据（值对象）
+              data:{
+               msg:'Hello,Vue!',
+              },
+            });
+        });
+    </script>
+</head>
+<body>
+  <div id="app">
+      <!--插值表达式：1、将数据填充到html标签中   2、支持基本的计算-->
+     <div>{{msg}}</div>
+     <div>{{1*2}}</div>
+  </div>
+   <!--
+     Vue的基本使用步骤:
+     1.引入vue.js
+     2、提供div标签用于填充数据渲染页面
+     3、使用vue的基本语法
+     4、用插值表达式把数据填充到标签里
+     -->
+</body>
+</html>
