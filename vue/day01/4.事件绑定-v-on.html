@@ -18,12 +18,20 @@
           <button @click="show">show</button>
           <!--调用函数-->
           <button @click="show()">show()</button>
+
+          <!--绑定方法名：参数是默认事件对象event-->
+          <button @click="show1">show方法名</button>
+          <!--绑定方法 参数-->
+          <button @click="show2(123,456,$event)">show2(123,456,$event)</button>
+
       </div>
 
 
    </div>
    <!--
      事件绑定- 指令v-on 简写@
+     事件参数:1、如果事件直接绑定函数名称，那么默认会传递事件对象作为事件函数的第一个参数
+             2、如果事件绑定函数调用，那么事件必须作为最后一个参数显示传递，并且事件对象的名称必须是$event
    -->
    <script>
        var vm=new Vue({
@@ -38,7 +46,20 @@
                        //这里的this指的是vue的实例对象vm，是局部的对象,不是window对象
                        console.log(this===vm);//true
                        this.num++;
+                   },
+                   //参数
+                   show1:function (event) {
+                       this.num++;
+                      console.log(event.target.innerHTML);//event默认事件对象  show1(event)
+                   },
+                   //调用方法 参数 最后是event
+                   show2:function (p1,p2,event) {
+                       console.log(p1,p2);
+                       console.log(event.target.innerHTML);//show2(123,456,$event)
+                       this.num++;
                    }
+
+
                }
        })
    </script>
