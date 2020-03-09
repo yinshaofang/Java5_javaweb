@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+       <!--插值表达式-->
+    <div>{{msg}}</div>
+    <div v-text="msg"></div>
+    <div v-html="msg1"></div>
+    <div v-pre>{{msg1}}</div>
+    <div v-once>{{info}}</div>
+   </div>
+   <!--
+      指令：v-text 插入文本    v-html标签  v-pre 显示原始信息，没有编译   v-once:只编译一次 提高性能
+
+   -->
+   <script>
+       var vm=new Vue({
+           el:'#app',
+           data:{
+               msg:"Welcome,VUE!",
+               msg1:"<h1>我是HTML标签！</h1>",
+               info:"只编译一次",
+           }
+       })
+   </script>
+</body>
+</html>

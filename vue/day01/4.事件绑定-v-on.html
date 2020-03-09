@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+      <div>{{num}}</div>
+      <div>
+          <!--num++不建议使用，可读性不强-->
+          <button v-on:click="num++">add</button>
+          <!--简写@-->
+          <button @click="num--">@简写</button>
+
+          <!--直接绑定函数名称-->
+          <button @click="show">show</button>
+          <!--调用函数-->
+          <button @click="show()">show()</button>
+      </div>
+
+
+   </div>
+   <!--
+     事件绑定- 指令v-on 简写@
+   -->
+   <script>
+       var vm=new Vue({
+               el:'#app',
+               data:{
+                   num:0,
+               },
+               //方法属性
+               methods:{
+                   //方法名:function（）{}
+                   show:function () {
+                       //这里的this指的是vue的实例对象vm，是局部的对象,不是window对象
+                       console.log(this===vm);//true
+                       this.num++;
+                   }
+               }
+       })
+   </script>
+</body>
+</html>

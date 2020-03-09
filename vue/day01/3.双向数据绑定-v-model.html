@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+     <div>{{msg}}</div>
+     <input type="text" v-model="msg">
+   </div>
+   <!--
+    一、什么是双向数据绑定：1、页面上数据变化，会影响vm对象msg  2、vm对象msg输入数据，会影响页面变化
+    二、指令：v-model双向数据绑定
+   -->
+   <script>
+       var vm=new Vue({
+           el:'#app',
+           data:{
+               msg:"Welcome,VUE!",
+           }
+       })
+   </script>
+</body>
+</html>
