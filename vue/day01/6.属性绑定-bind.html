@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+     <a v-bind:href="url">百度</a><br>
+       <!--简写 :-->
+     <a :href="url">简写</a>
+       <!--切换-->
+     <button v-on:click="handle">切换</button>
+
+   </div>
+   <!--
+    属性绑定：v-bind
+   -->
+   <script>
+       var vm=new Vue({
+               el:'#app',
+               data:{
+                  url:"https://www.baidu.com",
+               },
+               //方法属性
+               methods:{
+                 handle:function () {
+                     //修改url
+                     this.url="https://cn.vuejs.org/v2/api/#v-model";
+                 }
+               }
+       })
+   </script>
+</body>
+</html>

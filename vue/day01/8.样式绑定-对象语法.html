@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active{
+            border:3px solid red;
+            width: 300px;
+            height: 100px;
+        }
+        .error{
+            background-color: yellow;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <!--对象语法-->
+   <div V-bind:class="{active:isActive,error:isError}">样式绑定-对象语法</div>
+   <button v-on:click="handle">切换样式</button>
+</div>
+<!--
+   样式绑定 --对象语法 {active:isActive,error:isError}
+-->
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            isActive:true,
+            isError:true,
+        },
+        methods:{
+            //控制样式显示和隐藏
+             handle:function () {
+                 this.isActive=!this.isActive;
+                 this.isError =!this.isError;
+             }
+        }
+    })
+</script>
+</body>
+</html>

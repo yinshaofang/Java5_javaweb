@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <!--内联样式 style-->
+   <div v-bind:style="{border:borderStyle,width:wStyle,height:hStyle}">内联样式</div>
+    <!--简化样式 推荐-->
+    <div v-bind:style="objStyles">简化对象内联样式</div>
+    <!--简化数组样式 推荐-->
+    <div v-bind:style="[objStyles,overrideStyles]">简化数组内联样式（覆盖border样式）</div>
+   <button v-on:click="handle">切换样式</button>
+</div>
+<!--
+   样式绑定 -- 内联样式
+
+-->
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+         //对象
+            borderStyle:'3px solid blue',
+            wStyle:'100px',
+            hStyle:'100px',
+            //简化对象
+            objStyles:{
+                border:'5px solid red',
+                width:'200px',
+                height:'200px',
+            },
+            //简化数组样式  替换border
+            overrideStyles:{
+                border:'10px solid pink',
+                //vue书写格式必须是驼峰命名backgroundColor 不能background-color
+                backgroundColor:'green',
+            }
+        },
+        methods:{
+            //控制样式宽
+             handle:function () {
+               this.wStyle='400px',
+               this.objStyles.height='300px';
+             }
+        }
+    })
+</script>
+</body>
+</html>
