@@ -9,7 +9,7 @@
 <div id="app">
     <!--v-color指令-->
     <div>{{msg}}</div>
-    <input type="text" v=-color"msg">
+    <input type="text" v-color="msg">
 
 </div>
 <!--
@@ -18,25 +18,23 @@
 <script>
     //全局的自定义指令 -bind用法
     Vue.directive('color',{
-        //参数binding
+        //带参数binding
       bind:function (el,binding) {
           console.log(binding);//binding是个对象
           console.log(binding.value);//获取binding对象中的值
-          console.log("颜色："+binding.value.color);//获取binding对象中值msg的属性color ---red
+          console.log("颜色："+binding.value.color1);//获取binding对象中属性value值的属性color ---red
 
           //根据指令的参数设置背景颜色
-          el.style.backgroundColor=binding.value.color;
+          el.style.backgroundColor=binding.value.color1;
       }
     });
-
-
 
     var vm=new Vue({
         el:'#app',
         data:{
          // msg:'hello',
           msg:{
-              color:'red',
+              color1:'red',
           }
         },
 

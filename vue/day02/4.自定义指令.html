@@ -8,28 +8,27 @@
 <body>
 <div id="app">
     <input type="text">
+    <!--无参-->
    <input type="text" v-focus>
 </div>
 <!--
     自定义指令 ：不满足13个指令
+    不带参数的 inserted方法
 -->
 <script>
     //全局的自定义指令
     Vue.directive('focus',{
+        //无参
         inserted:function (el) {
             //el表示指令绑定的元素
             el.focus();//聚焦
         }
     });
 
-
-
     var vm=new Vue({
         el:'#app',
         data:{
-
         },
-
     });
 </script>
 </body>
