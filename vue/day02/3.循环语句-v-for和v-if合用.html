@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+       <!--遍历对象：注意顺序不变 值，名，下标-->
+      <div v-for="(value,key,index) in obj">{{value+'----'+key+'----'+index}}</div>
+        <!--v-if和v-for使用-->
+       <div v-if="v==22" v-for="(v,k,i) in obj">{{v+'~~~'+k+'~~~'+i}}</div>
+
+   </div>
+   <!--
+       遍历对象：v-for="(v,k,i) in obj"
+   -->
+   <script>
+       //原生js遍历对象
+        var obj={
+            name:'Tom',
+            age:'22',
+            gender:'male'
+        }
+        for(var i in obj){
+            console.log(i,obj[i]);
+        }
+
+
+       var vm=new Vue({
+           el:'#app',
+           data:{
+             obj:{
+                 name:'Tom',
+                 age:'22',
+                 gender:'male'
+             },
+           },
+           methods:{
+
+           }
+       })
+   </script>
+</body>
+</html>
