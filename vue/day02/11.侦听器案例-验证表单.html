@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>用户名：<input type="text" v-model.lazy="uname">
+        <span>{{info}}</span>
+    </div>
+
+</div>
+<!--
+  侦听器案例：验证用户名是否存在 步骤：1、采用侦听器监听用户名是否存在  2、调用后台接口进行验证  3、根据验证的结果调整提示信息
+-->
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+          uname:'',
+          info:'',
+        },
+        //侦听器：监听变化 一旦变化就改变值
+        watch:{
+            uname:function (val) {
+                this.checkName(val);//模拟调用后台的接口方法
+                //修改提示信息
+                this.info='正在验证..';
+            }
+        },
+        methods:{
+            //模拟后台接口
+            checkName:function (uname) {
+                var that=this;//原生js中this指的是window对象
+             setTimeout(function () {
+                 if(uname=='zhangsan'){
+                     that.info='用户名已经存在，请重新输入！';
+                 }else{
+                     that.info='用户名可以使用！';
+                 }
+             },2000);
+
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <input type="text" v-model="msg">
+    <!--过滤器-->
+   <div>{{msg | upper}}</div>
+    <!--级联过滤-->
+   <div>{{msg | upper | lower}}</div>
+   <div :abc="msg | upper">属性过滤</div>
+</div>
+<!--
+   过滤器：1、普通过滤   2、级联过滤   3、属性过滤
+   全局和局部过滤器的使用
+-->
+<script>
+     //全局过滤器
+//     Vue.filter('upper',function (val) {
+//         //js基本语法
+//         return val.charAt(0).toUpperCase()+val.slice(1);
+//     });
+//     Vue.filter('lower',function (val) {
+//         //js基本语法
+//         return val.charAt(0).toLowerCase()+val.slice(1);
+//     });
+
+
+    var vm=new Vue({
+        el:'#app',
+        data:{
+           msg:'hello',
+           abc:'',
+        },
+        //局部过滤器
+        filters:{
+            upper:function (val) {
+                return val.charAt(0).toUpperCase()+val.slice(1);
+            },
+            lower:function (val) {
+                return val.charAt(0).toLowerCase()+val.slice(1);
+            },
+        }
+
+    })
+</script>
+</body>
+</html>
