@@ -3,51 +3,33 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <!--<servlet>-->
-        <!--<servlet-name>test</servlet-name>-->
-        <!--<servlet-class>Test</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>test</servlet-name>-->
-        <!--<url-pattern>/day1/demo1/Test</url-pattern>-->
-    <!--</servlet-mapping>-->
-
-    <!--<servlet>-->
-        <!--<servlet-name>t1</servlet-name>-->
-        <!--<servlet-class>Test1</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>t1</servlet-name>-->
-        <!--<url-pattern>/day1/*</url-pattern>-->
-    <!--</servlet-mapping>-->
+     <!--转发与重定向-->
+     <servlet>
+         <servlet-name>s1</servlet-name>
+         <servlet-class>day2.转发与重定向.Servlet1</servlet-class>
+     </servlet>
+     <servlet-mapping>
+         <servlet-name>s1</servlet-name>
+         <url-pattern>/day2/s1</url-pattern>
+     </servlet-mapping>
 
     <servlet>
-        <servlet-name>demo2</servlet-name>
-        <servlet-class>day1.demo2.乱码.Test</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <servlet-name>s2</servlet-name>
+        <servlet-class>day2.转发与重定向.Servlet2</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>demo2</servlet-name>
-        <url-pattern>/day1/demo2/Test</url-pattern>
+        <servlet-name>s2</servlet-name>
+        <url-pattern>/day2/s2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>request</servlet-name>
+        <servlet-class>day2.转发与重定向.request对象.ReqServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>request</servlet-name>
+        <url-pattern>/day2/request</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>said</servlet-name>
-        <servlet-class>day1.生命周期.Said</servlet-class>
-        <init-param>
-        <param-name>blackIP1</param-name>
-        <param-value>192.168.0.13</param-value>
-        </init-param>
-        <init-param>
-        <param-name>blackIP2</param-name>
-        <param-value>192.168.0.14</param-value>
-        </init-param>
-        <!--优先执行，数值越小级别越高-->
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>said</servlet-name>
-        <url-pattern>/day1/lifecycle</url-pattern>
-    </servlet-mapping>
 
 </web-app>
