@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div>父组件(事件中心监听)</div>
+    <div>
+        <button @click="handle">销毁事件</button>
+    </div>
+    <test-a></test-a>
+    <test-b></test-b>
+</div>
+<!--
+    兄弟组件之间传值
+-->
+<script src="../js/vue.js"></script>
+<script>
+     //事件中心
+     var hub=new Vue();
+
+
+    //A组件
+    Vue.component('test-a',{
+       data:function () {
+           return{
+               num:0,
+           }
+       },
+        template:`
+           <div>
+            <div>A兄弟:{{num}}</div>
+            <button @click="handle">点击增加1</button>
+          </div>
+        `,
+        methods:{
+           handle:function () {
+              //触发B兄弟组件事件
+               hub.$emit('b-event',1);
+           },
+        },
+            //模板已经产生
+         mounted:function () {
+               //监听中心监听 A兄弟给B兄弟传值
+             hub.$on('a-event',(val)=> {
+                 this.num+=val;
+                 console.log(val);
+             });
+         },
+    });
+    //B组件
+    Vue.component('test-b',{
+        data:function () {
+            return{
+                num:0,
+            }
+        },
+        template:`
+           <div>
+            <div>B兄弟:{{num}}</div>
+            <button @click="handle">点击增加2</button>
+          </div>
+        `,
+        methods:{
+            handle:function () {
+                //触发A兄弟组件事件
+                hub.$emit('a-event',2);
+            },
+        },
+        //模板已经产生
+        mounted:function () {
+            //监听中心监听 B兄弟给A兄弟传值
+            hub.$on('b-event',(val)=>{
+                this.num+=val;
+            });
+        },
+    });
+
+
+
+    //父组件
+    var vm=new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            handle:function () {
+                //销毁事件
+                hub.$off('a-event');
+                hub.$off('b-event');
+            }
+
+        }
+    });
+</script>
+</body>
+</html>

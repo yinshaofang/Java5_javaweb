@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<!--父组件的模板-->
+<div id="app">
+    <div>{{pmsg}}</div>
+    <!--父组件 静态绑定 必须用短横线menu-title-->
+    <button-counter menu-title="来自父组件的信息"></button-counter>
+    <!--动态绑定属性  静态属性-->
+    <button-counter :title="ptitle" content="hello"></button-counter>
+    <!--父组件传值  数值、布尔类(必须动态绑定)否则是字符串 -->
+    <button-counter :pnum="111" :pbool="true" :parr="arr" :pobj="obj"></button-counter>
+</div>
+<!--
+
+-->
+<script>
+     //子组件
+    Vue.component('buttonCounter',{
+        //props接收父组件的属性
+        props:['menuTitle','title','content','pnum','pbool','parr','pobj'],
+        data:function () {
+            return{
+              msg:'子组件本身的数据'
+            }
+        },
+        template:`
+         <div>
+           <div>{{msg+"---"+title+"-----"+content+"----"+menuTitle}}</div>
+           <div>{{pnum+1}}</div>
+           <div>{{typeof pbool}}</div>
+           <ul>
+            <li :key="item.index" v-for="(item,index) in parr">{{item}}</li>
+           </ul>
+           <div v-for="(value,key,index) in pobj">
+              {{value+'---'+key+'----'+index}}
+          </div>
+         </div>`,
+    });
+
+
+
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            pmsg:'父组件中的内容：',
+            ptitle:'动态属性绑定属性',
+            //数组
+            arr:['apple','orange','pear'],
+            obj:{
+                id:1,
+                name:'zhangsan',
+                age:18
+            }
+        },
+    });
+</script>
+</body>
+</html>

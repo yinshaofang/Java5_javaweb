@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--<menu-item :parr="arr" @enlarge-text="handle"></menu-item>-->
+
+    <!--扩大字体-->
+    <div :style="{fontSize:fontSize+'px'}">{{msg}}</div>
+    <menu-item :parr="arr" @enlarge-text="handle($event)"></menu-item>
+
+</div>
+<!--
+    子组件向父组件传值： 1、props属性传值数据原则：单向数据流，（父向子传递数据，但是不推荐子向父传值）--缺陷：不利于父组件管理子组件
+                      2、子组件通过自定义事件向父组件传值，父组件监听子组件的事件  --推荐
+-->
+<script>
+    //子组件
+    Vue.component('menu-item',{
+        props:['parr'],
+        template:`
+        <div>
+         <ul>
+         <li :key="index" v-for="(item,index) in parr">{{item}}</li>
+         </ul>
+          <button @click="parr.push('lemon')">添加</button>
+          <button @click="$emit('enlarge-text')">扩大父组件中的字体大小</button>
+          <button @click="$emit('enlarge-text',5)">自定义事件：扩大父组件中的字体大小</button>
+        </div>
+        `,
+    })
+
+
+     //父组件
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            arr:['apple','orange','banana'],
+            msg:'我是父组件',
+            //设置大小
+            fontSize:10,
+        },
+        methods:{
+//            handle:function () {
+//                this.fontSize+=5;
+//            }
+            //带参数的
+            handle:function (val) {
+                //扩大
+                this.fontSize+=val;
+            }
+        }
+    });
+</script>
+</body>
+</html>
