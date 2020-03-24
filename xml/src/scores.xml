@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scores> 
+  <stu> 
+    <sid>编号:01</sid>  
+    <name>张三</name>  
+    <gender>男</gender>  
+    <score>100</score> 
+  </stu>  
+  <stu> 
+    <name>段康</name>  
+    <gender>男</gender> 
+  </stu> 
+</scores>

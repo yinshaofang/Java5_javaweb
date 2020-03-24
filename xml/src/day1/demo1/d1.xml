@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--根标签class-->
+<class>
+    <stu name="张三">
+        <name>张三</name>
+        <sex>男</sex>
+        <age>24</age>
+    </stu>
+
+    <stu name="李四">
+        <name>李四</name>
+        <sex>女</sex>
+        <age>24</age>
+    </stu>
+
+    <tec name="xxx">
+       <name>xxx</name>
+    </tec>
+
+</class>
